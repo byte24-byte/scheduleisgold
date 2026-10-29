@@ -4,9 +4,11 @@ import { AvatarDisplay } from './AvatarDisplay';
 import { ScheduleGridEditor } from './ScheduleGridEditor';
 import { X, Sparkles, User, ArrowRight, ArrowLeft, Check, Palette } from 'lucide-react';
 import { playPop, playFanfare } from '../utils/sound';
+import { getOptimalParticipantPosition } from '../utils/positioning';
 
 interface ParticipantRegisterModalProps {
   initialParticipant?: Participant | null;
+  existingParticipants?: Participant[];
   dates: string[];
   startHour: number;
   endHour: number;
@@ -31,6 +33,7 @@ const PANTS_COLORS = ['#1E293B', '#334155', '#475569', '#78350F', '#15803D'];
 
 export const ParticipantRegisterModal: React.FC<ParticipantRegisterModalProps> = ({
   initialParticipant,
+  existingParticipants = [],
   dates,
   startHour,
   endHour,
@@ -64,13 +67,19 @@ export const ParticipantRegisterModal: React.FC<ParticipantRegisterModalProps> =
       // Just a mild warning if empty, but still allow
     }
 
+    // Determine optimal position avoiding the center tree and far from existing characters
+    const assignedPosition =
+      initialParticipant?.positionX && initialParticipant?.positionY
+        ? { positionX: initialParticipant.positionX, positionY: initialParticipant.positionY }
+        : getOptimalParticipantPosition(existingParticipants);
+
     const participant: Participant = {
       id: initialParticipant?.id || `p-${Date.now()}`,
       name: name.trim(),
       note: note.trim() || '약속이 기대돼요! 🍎',
       avatar,
-      positionX: initialParticipant?.positionX || Math.floor(Math.random() * 60 + 20),
-      positionY: initialParticipant?.positionY || Math.floor(Math.random() * 16 + 72),
+      positionX: assignedPosition.positionX,
+      positionY: assignedPosition.positionY,
       availableSlots,
       updatedAt: Date.now(),
     };

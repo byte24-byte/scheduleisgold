@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Participant } from '../types';
 import { AvatarDisplay } from './AvatarDisplay';
 import { Sparkles, Plus, Clock, Users, CalendarCheck, Sun, Moon, Volume2, VolumeX } from 'lucide-react';
 import { playGoldenChime, playPop } from '../utils/sound';
+import { distributeAllParticipants } from '../utils/positioning';
 
 interface MeadowFieldProps {
   participants: Participant[];
@@ -24,6 +25,9 @@ export const MeadowField: React.FC<MeadowFieldProps> = ({
   const [activeSpeechId, setActiveSpeechId] = useState<string | null>(null);
   const [themeMode, setThemeMode] = useState<'day' | 'sunset'>('day');
   const [soundEnabled, setSoundEnabled] = useState(true);
+
+  // Distribute all characters gracefully across the wide meadow so they are never clustered in the center
+  const placedPositions = useMemo(() => distributeAllParticipants(participants), [participants]);
 
   const handleGoldenAppleClick = () => {
     if (soundEnabled) playGoldenChime();
@@ -277,17 +281,19 @@ export const MeadowField: React.FC<MeadowFieldProps> = ({
       {/* PARTICIPANT AVATARS ROAMING ON THE MEADOW */}
       <div className="absolute inset-0 z-20 pointer-events-none">
         {participants.map((p, idx) => {
-          // Dynamic distribution around the tree if not custom
-          const posX = p.positionX || (15 + (idx * 70) / Math.max(1, participants.length - 1));
-          const posY = p.positionY || (70 + (idx % 2) * 8);
+          // Use intelligent scenic distribution so avatars are placed comfortably across the wide meadow
+          const pos = placedPositions.find((item) => item.id === p.id) || {
+            x: p.positionX || 20,
+            y: p.positionY || 76,
+          };
 
           return (
             <div
               key={p.id}
               className="absolute pointer-events-auto transition-all duration-300"
               style={{
-                left: `${posX}%`,
-                top: `${posY}%`,
+                left: `${pos.x}%`,
+                top: `${pos.y}%`,
                 transform: 'translate(-50%, -50%)',
               }}
             >

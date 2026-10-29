@@ -394,6 +394,7 @@ export default function App() {
       {showRegisterModal && (
         <ParticipantRegisterModal
           initialParticipant={editingParticipant}
+          existingParticipants={room.participants}
           dates={room.dates}
           startHour={room.startHour}
           endHour={room.endHour}

@@ -23,8 +23,8 @@ export const INITIAL_PARTICIPANTS: Participant[] = [
       accessory: 'clover',
       mood: 'happy',
     },
-    positionX: 22,
-    positionY: 76,
+    positionX: 18,
+    positionY: 74,
     availableSlots: {
       '2026-10-30_18': true,
       '2026-10-30_19': true,
@@ -54,7 +54,7 @@ export const INITIAL_PARTICIPANTS: Participant[] = [
       accessory: 'apple_pin',
       mood: 'excited',
     },
-    positionX: 38,
+    positionX: 32,
     positionY: 82,
     availableSlots: {
       '2026-10-31_12': true,
@@ -85,8 +85,8 @@ export const INITIAL_PARTICIPANTS: Participant[] = [
       accessory: 'glasses',
       mood: 'sparkle',
     },
-    positionX: 64,
-    positionY: 80,
+    positionX: 68,
+    positionY: 82,
     availableSlots: {
       '2026-10-30_19': true,
       '2026-10-30_20': true,
@@ -116,8 +116,8 @@ export const INITIAL_PARTICIPANTS: Participant[] = [
       accessory: 'sunglasses',
       mood: 'chill',
     },
-    positionX: 78,
-    positionY: 74,
+    positionX: 84,
+    positionY: 72,
     availableSlots: {
       '2026-10-31_15': true,
       '2026-10-31_16': true,

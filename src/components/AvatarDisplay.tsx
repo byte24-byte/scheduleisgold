@@ -106,63 +106,94 @@ export const AvatarDisplay: React.FC<AvatarDisplayProps> = ({
           <circle cx="26" cy="44" r="5" fill={skinColor} />
           <circle cx="74" cy="44" r="5" fill={skinColor} />
 
-          {/* Hair Styles */}
+          {/* Hair Styles - Full Crown & Scalp Coverage with Natural Volume */}
           {hairStyle === 'short' && (
-            <path
-              d="M 27 40 C 27 20 73 20 73 40 C 68 28 32 28 27 40 Z"
-              fill={hairColor}
-            />
+            <g fill={hairColor}>
+              {/* Full crown dome reaching above the skull */}
+              <path d="M 23 44 C 20 11 80 11 77 44 C 74 34 62 36 50 32 C 38 35 26 34 23 44 Z" />
+              {/* Cute top hair strand texture */}
+              <path d="M 47 13 Q 52 8 57 12 Q 52 15 47 13 Z" />
+            </g>
           )}
 
           {hairStyle === 'bob' && (
             <g fill={hairColor}>
-              <path d="M 25 46 C 24 20 76 20 75 46 C 73 49 71 34 50 32 C 29 34 27 49 25 46 Z" />
-              <rect x="23" y="36" width="8" height="20" rx="4" />
-              <rect x="69" y="36" width="8" height="20" rx="4" />
+              {/* Full crown dome */}
+              <path d="M 23 44 C 20 11 80 11 77 44 C 74 34 62 36 50 32 C 38 35 26 34 23 44 Z" />
+              {/* Side locks falling past cheeks */}
+              <rect x="22" y="36" width="9" height="26" rx="4.5" />
+              <rect x="69" y="36" width="9" height="26" rx="4.5" />
+              {/* Bangs fringe */}
+              <path d="M 27 34 Q 50 32 73 34 Q 50 37 27 34 Z" opacity="0.9" />
             </g>
           )}
 
           {hairStyle === 'curly' && (
             <g fill={hairColor}>
-              <circle cx="34" cy="26" r="10" />
-              <circle cx="50" cy="22" r="11" />
-              <circle cx="66" cy="26" r="10" />
-              <circle cx="27" cy="35" r="9" />
-              <circle cx="73" cy="35" r="9" />
+              {/* Solid base cap covering the whole crown */}
+              <path d="M 23 45 C 20 11 80 11 77 45 C 72 32 28 32 23 45 Z" />
+              {/* Voluminous overlapping curls covering crown, forehead, and sides */}
+              <circle cx="50" cy="14" r="10.5" />
+              <circle cx="36" cy="16" r="9.5" />
+              <circle cx="64" cy="16" r="9.5" />
+              <circle cx="25" cy="24" r="9" />
+              <circle cx="75" cy="24" r="9" />
+              <circle cx="22" cy="35" r="8.5" />
+              <circle cx="78" cy="35" r="8.5" />
+              <circle cx="24" cy="46" r="7.5" />
+              <circle cx="76" cy="46" r="7.5" />
+              <circle cx="42" cy="27" r="8" />
+              <circle cx="58" cy="27" r="8" />
             </g>
           )}
 
           {hairStyle === 'ponytail' && (
             <g fill={hairColor}>
-              <path d="M 27 40 C 27 20 73 20 73 40 C 68 28 32 28 27 40 Z" />
-              <path d="M 68 26 C 78 20 84 32 82 46 C 77 48 74 38 68 26 Z" />
-              <circle cx="68" cy="28" r="4" fill="#EC4899" />
+              {/* Full crown dome */}
+              <path d="M 23 44 C 20 11 80 11 77 44 C 74 34 62 36 50 32 C 38 35 26 34 23 44 Z" />
+              {/* High side ponytail */}
+              <path d="M 74 21 C 88 15 95 28 91 46 C 85 48 81 36 74 27 Z" />
+              <circle cx="73" cy="23" r="4.5" fill="#EC4899" />
             </g>
           )}
 
           {hairStyle === 'cap' && (
             <g>
-              <ellipse cx="50" cy="30" rx="24" ry="14" fill={hairColor} />
-              <path d="M 30 32 Q 50 26 76 34 Q 85 36 78 40 Q 50 36 30 32 Z" fill={hairColor} />
-              <circle cx="50" cy="18" r="3" fill="#E2E8F0" />
+              {/* Natural hair peeking out below cap */}
+              <path d="M 23 44 C 21 13 79 13 77 44 C 74 38 26 38 23 44 Z" fill={hairColor} />
+              <rect x="23" y="38" width="6" height="12" rx="3" fill={hairColor} />
+              <rect x="71" y="38" width="6" height="12" rx="3" fill={hairColor} />
+              {/* Baseball cap dome covering full crown */}
+              <ellipse cx="50" cy="26" rx="25.5" ry="16.5" fill={hairColor} />
+              <path d="M 28 29 Q 50 21 78 30 Q 88 33 80 38 Q 50 32 28 29 Z" fill={hairColor} />
+              <circle cx="50" cy="10" r="3.5" fill="#F8FAFC" />
             </g>
           )}
 
           {hairStyle === 'beanie' && (
             <g>
-              <ellipse cx="50" cy="28" rx="25" ry="17" fill={hairColor} />
-              <rect x="27" y="32" width="46" height="8" rx="4" fill={hairColor} />
-              <circle cx="50" cy="12" r="6" fill="#F8FAFC" />
+              {/* Hair peeking at cheeks */}
+              <path d="M 24 45 C 22 20 78 20 76 45 C 72 38 28 38 24 45 Z" fill={hairColor} />
+              <rect x="23" y="40" width="6" height="10" rx="3" fill={hairColor} />
+              <rect x="71" y="40" width="6" height="10" rx="3" fill={hairColor} />
+              {/* Full warm beanie covering top dome */}
+              <ellipse cx="50" cy="24" rx="26" ry="18" fill={hairColor} />
+              <rect x="24" y="27" width="52" height="9" rx="4.5" fill={hairColor} opacity="0.9" />
+              <circle cx="50" cy="7" r="7" fill="#F8FAFC" />
             </g>
           )}
 
           {hairStyle === 'ribbon' && (
             <g>
-              <path d="M 26 44 C 25 22 75 22 74 44 C 70 32 30 32 26 44 Z" fill={hairColor} />
-              {/* Cute Red/Pink Ribbon */}
-              <circle cx="64" cy="24" r="3" fill="#F43F5E" />
-              <polygon points="64,24 55,18 57,28" fill="#F43F5E" />
-              <polygon points="64,24 73,18 71,28" fill="#F43F5E" />
+              {/* Full crown dome */}
+              <path d="M 23 44 C 20 11 80 11 77 44 C 74 34 62 36 50 32 C 38 35 26 34 23 44 Z" fill={hairColor} />
+              {/* Side locks */}
+              <rect x="23" y="40" width="7" height="16" rx="3.5" fill={hairColor} />
+              <rect x="70" y="40" width="7" height="16" rx="3.5" fill={hairColor} />
+              {/* Cute Pink/Red Ribbon on hair */}
+              <circle cx="64" cy="18" r="3.5" fill="#F43F5E" />
+              <polygon points="64,18 52,11 54,23" fill="#F43F5E" />
+              <polygon points="64,18 76,11 74,23" fill="#F43F5E" />
             </g>
           )}
 
