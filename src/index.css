@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes floatCloudLeft {
+    0% {
+      transform: translateX(-150px);
+    }
+    100% {
+      transform: translateX(calc(100vw + 150px));
+    }
+  }
+
+  @keyframes floatCloudRight {
+    0% {
+      transform: translateX(calc(100vw + 150px));
+    }
+    100% {
+      transform: translateX(-150px);
+    }
+  }
+
+  @keyframes swayGentle {
+    0%, 100% {
+      transform: rotate(-1.5deg);
+    }
+    50% {
+      transform: rotate(1.5deg);
+    }
+  }
+
+  @keyframes swayLeaves {
+    0%, 100% {
+      transform: translateY(0px) rotate(-1deg) scale(1);
+    }
+    50% {
+      transform: translateY(-4px) rotate(1.2deg) scale(1.015);
+    }
+  }
+
+  @keyframes goldenBob {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-8px) scale(1.05);
+    }
+  }
+
+  @keyframes goldenGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 14px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 35px rgba(234, 179, 8, 0.45));
+    }
+    50% {
+      filter: drop-shadow(0 0 26px rgba(250, 204, 21, 0.95)) drop-shadow(0 0 50px rgba(245, 158, 11, 0.7));
+    }
+  }
+
+  @keyframes avatarSway {
+    0%, 100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+      transform: translateY(-4px) rotate(2deg);
+    }
+  }
+
+  @keyframes avatarHop {
+    0%, 100% {
+      transform: translateY(0) scaleY(1);
+    }
+    20% {
+      transform: translateY(-12px) scaleY(1.08) scaleX(0.95);
+    }
+    40% {
+      transform: translateY(0) scaleY(0.92) scaleX(1.05);
+    }
+    60% {
+      transform: translateY(-4px) scaleY(1.02);
+    }
+    80% {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  @keyframes flutter {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(12px, -8px) rotate(8deg);
+    }
+    50% {
+      transform: translate(-6px, -14px) rotate(-6deg);
+    }
+    75% {
+      transform: translate(8px, -4px) rotate(4deg);
+    }
+  }
+
+  @keyframes sparkleTwinkle {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(0.6) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.15) rotate(45deg);
+    }
+  }
+}
+
+.animate-cloud-slow {
+  animation: floatCloudLeft 65s linear infinite;
+}
+
+.animate-cloud-medium {
+  animation: floatCloudLeft 45s linear infinite;
+}
+
+.animate-cloud-fast {
+  animation: floatCloudLeft 32s linear infinite;
+}
+
+.animate-sway {
+  animation: swayGentle 6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-sway-leaves {
+  animation: swayLeaves 4.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.animate-golden-apple {
+  animation: goldenBob 3s ease-in-out infinite, goldenGlow 2.5s ease-in-out infinite;
+}
+
+.animate-avatar-sway {
+  animation: avatarSway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-avatar-hop {
+  animation: avatarHop 2.4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-butterfly {
+  animation: flutter 4s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: sparkleTwinkle 2s ease-in-out infinite;
+}
+
+/* User selection guard for drag-to-select grid */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom smooth scrollbar for time tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "황금사과 약속 들판",
+  "description": "푸른 하늘과 들판의 사과나무에서 황금사과를 눌러 모두가 가능한 약속 시간을 찾고 투표로 확정하는 귀여운 단체 일정 조율 서비스",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
